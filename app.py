@@ -7,7 +7,7 @@ import plotly.express as px
 import io
 
 # Título de la app
-st.title("📊 Mapa y Estadísticas de Mortalidad Materna en Costa Rica (Tasa por cien mil habitantes).")
+st.title("📊 Mapa de Mortalidad Materna en Costa Rica (Tasa por cien mil habitantes).")
 
 # Cargar datos con caché
 @st.cache_data
