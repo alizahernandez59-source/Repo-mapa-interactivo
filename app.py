@@ -96,6 +96,8 @@ st.markdown("""
 # ===============================
 # DESCARGA DE DATOS
 # ===============================
+# Filtrar datos según selección
+df_seleccion = df[(df['canton'].isin(cantones_seleccionados)) & (df['year'].isin(anios_seleccionados))]
 
 st.write("### 📥 Descargar datos filtrados")
 if not df_seleccion.empty:
