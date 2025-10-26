@@ -6,7 +6,6 @@ from streamlit_folium import st_folium
 import plotly.express as px
 import io
 
-st.cache_data.clear()
 # Título de la app
 st.markdown(
     """
@@ -62,11 +61,7 @@ df_filtrado = df[df['year'] == anio_seleccionado]
 gdf_merged = gdf.merge(df_filtrado, how="left", left_on="NAME_2", right_on="canton")
 
 # Crear mapa base
-m = folium.Map(
-    location=[9.7489, -83.7534],
-    zoom_start=8,
-    tiles="CartoDB positron"
-)
+m = folium.Map(location=[9.7489, -83.7534], zoom_start=8)
 
 # Función para colorear según tasa
 def color_por_tasa(tasa):
