@@ -26,8 +26,8 @@ except Exception as e:
     st.error(f"Ocurrió un error cargando los archivos: {e}")
     st.stop()
 
-# Filtrar años desde 2014
-df = df[df['year'] >= 2014]
+# Filtrar años desde 2017
+df = df[df['year'] >= 2017]
 
 # Sidebar para filtros
 st.sidebar.title("Filtros 📌")
