@@ -26,8 +26,8 @@ except Exception as e:
     st.error(f"Ocurrió un error cargando los archivos: {e}")
     st.stop()
 
-# Filtrar años desde 2017
-df = df[df['year'] >= 2017]
+# Filtrar años desde 2014
+df = df[df['year'] >= 2014]
 
 # Sidebar para filtros
 st.sidebar.title("Filtros 📌")
@@ -92,50 +92,6 @@ st.markdown("""
 **🔴 Tasa mayor a 20**  
 **⚪ Sin dato**
 """)
-
-# ===============================
-# ESTADÍSTICA DESCRIPTIVA
-# ===============================
-
-st.subheader("📊 Estadística Descriptiva")
-
-# Filtrar datos según selección
-df_seleccion = df[(df['canton'].isin(cantones_seleccionados)) & (df['year'].isin(anios_seleccionados))]
-
-# Mostrar tabla con valores absolutos
-st.write("### 📋 Tabla de valores")
-if not df_seleccion.empty:
-    st.dataframe(df_seleccion[['year', 'canton', 'tasa_mortalidad_maternapor_cienmil', 'cantidad_defunciones_maternas']].sort_values(['canton', 'year']))
-else:
-    st.write("No hay datos para la selección actual.")
-
-# Resumen estadístico
-st.write("### 📊 Resumen Estadístico")
-if not df_seleccion.empty:
-    resumen = df_seleccion[['tasa_mortalidad_maternapor_cienmil', 'cantidad_defunciones_maternas']].describe()
-    st.dataframe(resumen)
-else:
-    st.write("No hay datos para mostrar resumen.")
-
-# Gráfico de líneas: Tasa Mortalidad Materna
-st.write("### 📈 Serie: Tasa de Mortalidad Materna")
-if not df_seleccion.empty:
-    fig_tasa = px.line(df_seleccion, x='year', y='tasa_mortalidad_maternapor_cienmil', color='canton',
-                       markers=True, labels={'tasa_mortalidad_maternapor_cienmil': 'Tasa por cien mil habitantes'},
-                       title='Tasa de Mortalidad Materna por cien mil habitantes por Cantón y Año')
-    st.plotly_chart(fig_tasa, use_container_width=True)
-else:
-    st.write("No hay datos para la selección actual.")
-
-# Gráfico de líneas: Cantidad de Defunciones Maternas
-st.write("### 📈 Serie: Cantidad de Defunciones Maternas")
-if not df_seleccion.empty:
-    fig_def = px.line(df_seleccion, x='year', y='cantidad_defunciones_maternas', color='canton',
-                      markers=True, labels={'cantidad_defunciones_maternas': 'Defunciones'},
-                      title='Defunciones Maternas por Cantón y Año')
-    st.plotly_chart(fig_def, use_container_width=True)
-else:
-    st.write("No hay datos para la selección actual.")
 
 # ===============================
 # DESCARGA DE DATOS
