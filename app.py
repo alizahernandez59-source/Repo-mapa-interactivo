@@ -17,6 +17,7 @@ st.markdown(
     </h1>
     """,
     unsafe_allow_html=True
+)
 
 # Cargar datos con caché
 @st.cache_data
