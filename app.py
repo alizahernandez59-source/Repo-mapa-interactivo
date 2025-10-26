@@ -78,8 +78,8 @@ for _, row in gdf_merged.iterrows():
         },
         tooltip=folium.Tooltip(f"""
             <strong>Cantón:</strong> {row['NAME_2']}<br>
-            <strong>Tasa Mortalidad Materna:</strong> {row['tasa_mortalidad_maternapor_cienmil']}<br>
-            <strong>Defunciones Maternas:</strong> {row['cantidad_defunciones_maternas']}
+            <strong>Tasa Mortalidad Materna:</strong> {row['tasa_mortalidad_maternapor_cienmil'] if not pd.isnull(row['tasa_mortalidad_maternapor_cienmil']) else 'Sin datos'}<br>
+            <strong>Defunciones Maternas:</strong> {row['cantidad_defunciones_maternas'] if not pd.isnull(row['cantidad_defunciones_maternas']) else 'Sin datos'}
         """)
     ).add_to(m)
 
