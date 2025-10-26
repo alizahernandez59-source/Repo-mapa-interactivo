@@ -8,7 +8,7 @@ import io
 
 st.cache_data.clear()
 # Título de la app
-st.title("📊 Mapa de Mortalidad Materna en Costa Rica (Tasa por cien mil habitantes).")
+st.title("📊 Mapa de Mortalidad Materna en Costa Rica (Tasa de mortalidad materna por cada 100 000 nacidos vivos).")
 
 # Cargar datos con caché
 @st.cache_data
