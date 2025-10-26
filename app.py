@@ -6,6 +6,7 @@ from streamlit_folium import st_folium
 import plotly.express as px
 import io
 
+st.cache_data.clear()
 # Título de la app
 st.title("📊 Mapa de Mortalidad Materna en Costa Rica (Tasa por cien mil habitantes).")
 
